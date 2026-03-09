@@ -1,0 +1,3 @@
+## 2025-05-14 - Standardizing Theme Structure and Asset Loading
+**Learning:** In this custom WordPress environment, 'header.php' was incorrectly implemented as a duplicate of the home page template with recursive 'get_header()' calls. Additionally, image assets were named with redundant extensions ('.jpg.png') and lacked dimensions, causing layout shifts.
+**Action:** Refactor 'header.php' to a standard HTML5 structure, rename assets to clean '.png' extensions, and always include 'width', 'height', and 'decoding="async"' on images. Ensure LCP candidates have 'fetchpriority="high"' and sensitive config files are named '.php' to avoid exposure.
