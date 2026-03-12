@@ -1,0 +1,3 @@
+## 2024-05-23 - WordPress Theme Performance Baseline
+**Learning:** Merging a feature branch into an empty main branch makes the entire theme appear as a "new change" in the PR, which violates the "small improvement" constraint. Dequeuing core styles (`wp-block-library`) is a breaking change for sites using Gutenberg.
+**Action:** Focus on surgical optimizations (like image attributes and head cleanup) rather than broad refactoring. Always verify if an asset is used before including it. Avoid modifying configuration files like `wp-config.php` or `wordpress.db` unless necessary for the optimization.
