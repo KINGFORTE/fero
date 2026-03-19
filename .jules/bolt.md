@@ -1,0 +1,3 @@
+## 2024-05-24 - [Critical Asset Loading & Security Finding]
+**Learning:** Found that the homepage's LCP candidates (candidate images) were slow to load due to lack of preloading and missing `fetchpriority` attributes. Also discovered that image assets used a double extension (`.jpg.png`), which caused 404s when referenced as standard `.jpg` files. A security risk was also identified where a PHP configuration file was named `wordpress.db`.
+**Action:** Implemented LCP preloading and `fetchpriority="high"` for critical images, and applied `loading="lazy"` for below-the-fold content. Deleted the insecure `wordpress.db` file. Always verify asset extensions on the filesystem and keep performance improvements focused and minimal as per PR guidelines.
