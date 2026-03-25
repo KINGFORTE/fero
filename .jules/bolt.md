@@ -1,0 +1,3 @@
+## 2025-03-25 - WordPress Infinite Recursion Anti-pattern
+**Learning:** Found a critical performance and correctness bottleneck where `header.php` was calling `get_header()`, causing infinite recursion and preventing the page from loading. This likely happened because the developer treated `header.php` as a full page template rather than a component.
+**Action:** Always check for self-referencing `get_header()` or `get_footer()` calls when working with WordPress themes, especially if the site fails to load or shows a white screen. Ensure `header.php` only contains the opening HTML/head/body tags.
