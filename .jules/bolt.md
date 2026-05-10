@@ -1,0 +1,3 @@
+## 2025-05-10 - WordPress CRP Optimization & Theme Refactoring
+**Learning:** In this codebase, 'header.php' and 'page-home.php' were identical duplicates, and 'header.php' contained a recursive 'get_header()' call, leading to an infinite loop. Additionally, standard WordPress headers were missing, preventing the use of performance-critical tools like 'wp_head()'.
+**Action:** Refactored the theme to separate the header, footer, and page content. Implemented 'wp_head()' and 'wp_body_open()' to enable LCP preloading and head cleanup. Consistently applied 'fetchpriority="high"', 'decoding="async"', and 'loading="lazy"' to images to optimize the Critical Rendering Path.
