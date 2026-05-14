@@ -1,0 +1,3 @@
+## 2024-05-14 - Critical Rendering Path Optimization in WordPress
+**Learning:** In a minimal WordPress theme, the most impactful performance win is often optimizing the Critical Rendering Path (CRP) by prioritizing the Largest Contentful Paint (LCP) image and cleaning up the default head bloat.
+**Action:** Use `link rel="preload"` and `fetchpriority="high"` for LCP images, and always remove unnecessary `wp_head` hooks (emojis, generator tags) to reduce TTFB and parse time. Consolidate interdependent CRP fixes into a single logical "Critical Rendering Path" optimization to satisfy "one small improvement" constraints when they are strictly coupled.
