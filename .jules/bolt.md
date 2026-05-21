@@ -1,0 +1,3 @@
+## 2024-05-21 - Critical Rendering Path and Theme Structure
+**Learning:** The baseline codebase (KINGFORTE-patch-1) contained an infinite recursion loop in `header.php` where `get_header()` was called within the file itself. Additionally, the theme structure was non-standard, with `header.php` and `page-home.php` containing identical content. A misnamed `wordpress.db` file (actually `wp-config.php`) was also present, posing a security risk and cluttering the performance-focused scope.
+**Action:** Consolidate LCP optimizations (preloading, fetchpriority) and structural fixes (removing recursion) into a single "Critical Rendering Path" win. Ensure non-essential files like misnamed configs are removed to maintain focus on performance and security.
