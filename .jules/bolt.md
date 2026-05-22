@@ -1,0 +1,3 @@
+## 2024-05-22 - Recursive Loop and Asset 404s
+**Learning:** Found an infinite recursive loop in `header.php` where it called `get_header()`. This prevents any rendering and is a critical bottleneck. Also, several assets were referenced with wrong extensions or were missing (e.g., `short1.jpg` was missing while `short1.jpg.png` existed in the file system).
+**Action:** Always verify the core WordPress loop for recursion. Consolidate LCP preloads and head cleanup into a single "Critical Rendering Path" optimization to satisfy "one small improvement" while fixing fundamental rendering issues. Use visual placeholders for missing assets to prevent performance-degrading 404s.
