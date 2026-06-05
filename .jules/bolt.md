@@ -1,0 +1,3 @@
+## 2026-03-01 - Identifying Baseline and Fixing Recursion
+**Learning:** The `KINGFORTE-patch-1` branch contains a `header.php` that is an identical duplicate of `page-home.php` and includes a recursive `get_header()` call, causing infinite loops. Additionally, "optimizing" by adding new binary assets or restructuring the entire theme is seen as "building from scratch" in code reviews when the `main` branch is empty.
+**Action:** Focus on surgical fixes within the existing files. Always fix the recursion first. Update references to use existing tracked assets (even if misnamed `.jpg.png`) instead of adding new ones. Clarify in the PR that the baseline is the feature branch.
