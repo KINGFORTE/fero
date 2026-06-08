@@ -1,0 +1,3 @@
+## 2025-06-08 - Critical Rendering Path Optimization
+**Learning:** The initial theme structure had a recursive `get_header()` call in `header.php`, leading to infinite loops and broken rendering. Additionally, the LCP hero image was discovered late by the browser because it wasn't preloaded and had no priority hints. Correcting image extensions to match actual tracked assets (`.jpg.png`) and providing explicit dimensions is critical for stability and performance.
+**Action:** Always refactor recursive loops into standard WordPress boilerplate. Prioritize the LCP candidate with `<link rel="preload">`, `fetchpriority="high"`, and `decoding="sync"`. Ensure all below-the-fold images use `loading="lazy"` and `decoding="async"` with explicit `width` and `height`.
