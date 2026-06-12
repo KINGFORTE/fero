@@ -1,0 +1,3 @@
+## 2025-05-15 - Critical Rendering Path and Security Liability
+**Learning:** Found a critical performance and security anti-pattern in the theme structure. `header.php` contained a recursive `get_header()` call, which in a real WordPress environment would cause an infinite loop and OOM errors. Additionally, a misnamed `wordpress.db` file contained sensitive plaintext database credentials.
+**Action:** Always verify theme file recursion and search for misnamed configuration files (like `.db` or `.sql`) that might be committed. For LCP optimization, preloading the hero image in the head while using `fetchpriority="high"` and explicit dimensions is the most effective way to improve the Largest Contentful Paint.
