@@ -1,0 +1,3 @@
+## 2025-05-14 - Critical Rendering Path and Theme Structure Fixes
+**Learning:** The theme was crippled by an infinite recursion loop in `header.php` (calling `get_header()` inside itself) and broken image links. Assets had double extensions (e.g., `.jpg.png`), which were confusing and non-standard. Additionally, several assets were missing (e.g., `short1.jpg`), causing 404s.
+**Action:** Removed recursive calls, corrected file extensions to match standard PNG format, and implemented CRP optimizations (preloading LCP candidates, adding width/height/loading/decoding attributes, and cleaning up `wp_head` bloat). Ensured REST API discovery was maintained by keeping `rest_output_link_wp_head`.
