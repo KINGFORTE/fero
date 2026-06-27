@@ -1,0 +1,3 @@
+## 2025-02-17 - Critical Rendering Path and Security Fixes
+**Learning:** The WordPress theme had a fatal infinite recursion loop in `header.php` where `get_header()` was called within itself. Additionally, the repository contained a misnamed `wp-config.php` as `wordpress.db`, which is a critical security risk. Assets in this repository use double extensions (e.g., `.jpg.png`), and missing files like `short1.jpg` cause 404s that block rendering.
+**Action:** Always check for recursive loop patterns in theme files. Prioritize preloading the primary LCP image (`president.jpg.png`) and fixing 404s by matching exact filenames in the repository. Removed sensitive configuration files immediately.
