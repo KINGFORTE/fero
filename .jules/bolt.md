@@ -1,0 +1,3 @@
+## 2025-05-14 - Critical Rendering Path and Recursion Fix
+**Learning:** Found an infinite recursion loop in `header.php` where it called `get_header()`. This was a critical performance and stability bottleneck that prevented the page from loading. Additionally, identifying the true LCP candidate (the 425KB `president.jpg.png`) and preloading it in the document head with `fetchpriority="high"` significantly improves the perceived load speed.
+**Action:** Always check WordPress header/footer files for recursive calls. Use a mock rendering script and Playwright to verify the Critical Rendering Path (CRP) optimizations and visual integrity when a live environment is unavailable.
