@@ -1,0 +1,3 @@
+## 2024-07-07 - Critical Rendering Path and Recursion Fix
+**Learning:** Found a critical infinite recursion loop in `header.php` where `get_header()` was called within itself. Also identified that the WordPress theme lacked proper HTML5 structure and had several broken image links due to incorrect file extensions in the repository.
+**Action:** Always verify the entry point of WordPress themes for recursive calls. Use LCP preloading and high fetch priority for the main hero image to optimize CRP. Ensure image references match the actual filesystem, especially when assets have unusual double extensions like `.jpg.png`.
